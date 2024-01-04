@@ -21,10 +21,10 @@ export function Avatar(props) {
     "animations/Standing Idle.fbx"
   );
   const { animations: runAnimation } = useFBX(
-    "animations/Falling Idle.fbx"
+    "animations/Standing W_Briefcase Idle.fbx"
   );
   const { animations: jumpAnimation } = useFBX(
-    "animations/Jumping.fbx"
+    "animations/jumpingDown.fbx"
   );
 
   dancingAnimation[0].name = "Dancing";

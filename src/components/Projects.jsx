@@ -6,6 +6,7 @@ import { motion } from "framer-motion-3d";
 import { atom, useAtom } from "jotai";
 import { useEffect, useRef } from "react";
 
+
 export const projects = [
   {
     title: "Wawatmos",
@@ -98,6 +99,7 @@ export const Projects = () => {
   const [currentProject] = useAtom(currentProjectAtom);
 
   return (
+    
     <group position-y={-viewport.height * 2.1 + 1}>
       {projects.map((project, index) => (
         <motion.group

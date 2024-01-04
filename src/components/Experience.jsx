@@ -4,6 +4,8 @@ import {
   useScroll,
   Float,
   Text,
+  MeshDistortMaterial,
+  MeshWobbleMaterial,
   RenderTexture,
   useMatcapTexture,
   ContactShadows
@@ -22,6 +24,7 @@ import { Ballon } from "./Ballon";
 import { Background } from "./Background";
 import {Flag} from "./Flag";
 import React from "react";
+import TextTresD from "./TextTresD";
 
 
 
@@ -73,40 +76,10 @@ export const Experience = (props) => {
       options: ["Dancing", "Run", "Standing", "Jump"],
     },
   });
-  return (
-    
-    <>
-     
+  return (   
+    <>    
       <Background />
-      <motion.group>      
-        <Text3D
-          position={[-2, 2.4, 3.8]}
-          scale={[.5, .5, .5]}
-          ref={ref}
-          size={w / 15}
-          maxWidth={[-w / 5, -h * 3, 3]}
-          font={"fonts/gt.json"}
-          curveSegments={10}
-          brevelSegments={5}
-          castShadow={true} 
-          bevelEnabled
-          receiveShadow={true}
-          bevelSize={0.04}
-          height={.2}
-          rotation={[0, 1.1, 0]} 
-          lineHeight={0.5}
-          letterSpacing={0.2}
-          
-          >
-            {`I'm\nEdisson\nFuquene`}
-          <meshStandardMaterial shadowSide={THREE.BackSide} color="#F7A90B"/>
-          
-
-        </Text3D>
-      </motion.group>
-        
-   
-      
+      <TextTresD/>
       <motion.group 
         position={[2.1,.7, 5.7]}
         rotation={[0, -0.39439816339744843, 0]}
@@ -147,22 +120,19 @@ export const Experience = (props) => {
         }}
         >
           
-      <Avatar  animation={characterAnimation}/>
-      
-      
-      </motion.group>
+        <Avatar  animation={characterAnimation}/>
+
+      </motion.group>     
       <motion.group  
         position={[1, 3, 4]}
         animate={{    
           y: section === -1 ? -viewport.height : 1.5,
         
         }}>
-          <Float speed={2} floatIntensity={2} scale={.5}>
-            <Ballon/>                
-          </Float>       
+        <Float speed={2} floatIntensity={2} scale={.5}>
+          <Ballon/>                
+        </Float>       
       </motion.group>
-     
-
       <ambientLight intensity={.1}/>
       <Environment preset="sunset" />
       <directionalLight castShadow={true} color={"#FBC138"} position={[-4, 10, -4.7]} intensity={1} />
@@ -175,7 +145,6 @@ export const Experience = (props) => {
           y: section === 0 ? 1 : 0,
         }}
       >
-       
         <Flag/>
         <Office section = {section}/>
         <group ref={characterContainerAboutRef}  position={[2.284, -0.429, 1.834]} rotation={[0, 0.391, 0]} scale={0.393}>
@@ -184,8 +153,100 @@ export const Experience = (props) => {
       </motion.group>
         
         {/* SKILLS */}
-      
+      <motion.group
+          position={[0, -1.5, -10]}
+          animate= {""+ section}
+          variants={{
+          0: {
+            scaleX: 0,
+            scaleY: 0,
+            scaleZ: 0,
+            opacity:0
+          },
+          1: {
+            y: -viewport.height + 1.5,
+            x: 0,
+            z: 6,
+            opacity:1,
+            scaleX: 0.2,
+            scaleY: 0.2,
+            scaleZ: 0.2,
+          },
+          2: {
+          
+            opacity:0
+          },
+          3: {
+            opacity:0
+          },
+        }}
+      >
+        <directionalLight position={[-5, 3, 5]} intensity={0.4} />
+        <Float>
+          <mesh position={[1, -3, -15]} scale={[2, 2, 2]}>
+            <sphereGeometry />
+            <MeshDistortMaterial
+              opacity={0.8}
+              transparent
+              distort={0.4}
+              speed={4}
+              color={"red"}
+            />
+          </mesh>
+        </Float>
+        <Float>
+          <mesh scale={[3, 3, 3]} position={[3, 1, -18]}>
+            <sphereGeometry />
+            <MeshDistortMaterial
+              opacity={0.8}
+              transparent
+              distort={1}
+              speed={5}
+              color="yellow"
+            />
+          </mesh>
+        </Float>
+        <Float>
+          <mesh scale={[1.4, 1.4, 1.4]} position={[-3, -1, -11]}>
+            <boxGeometry />
+            <MeshWobbleMaterial
+              opacity={0.8}
+              transparent
+              factor={1}
+              speed={5}
+              color={"blue"}
+            />
+          </mesh>
+        </Float>
+      </motion.group>
       <Projects/>
+      <motion.group>      
+        <Text3D
+            position={[1.2, 0, 1.1]}
+            position-y={-viewport.height * 1.0 + 1}
+            scale={[.5, .5, .5]}
+            ref={ref}
+            size={w / 15}
+            maxWidth={[-w / 5, -h * 3, 3]}
+            font={"fonts/gt.json"}
+            curveSegments={10}
+            brevelSegments={5}
+            castShadow={true} 
+            bevelEnabled
+            receiveShadow={true}
+            bevelSize={0.04}
+            height={.2}
+            rotation={[0, -1, 0]} 
+            lineHeight={0.5}
+            letterSpacing={0.2}
+            
+            >
+            {`SKILLS`}
+            <meshStandardMaterial shadowSide={THREE.BackSide} color="#B667E5"/>
+            
+
+        </Text3D>
+    </motion.group>
    
     </>
   );
