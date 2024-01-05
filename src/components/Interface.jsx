@@ -73,8 +73,8 @@ const AboutSection = (props) => {
       </motion.p>
       <motion.button
         onClick={() => setSection(3)}
-        className={` bg-white text-black py-4 px-8 
-      rounded-lg font-bold text-lg mt-16`}
+        className={`anim button-contact skew-y-6 bg-white text-teal-400 py-4 px-8 
+      rounded-lg font-bold mt-16`}
         initial={{
           opacity: 0,
           y: 25,
@@ -83,12 +83,7 @@ const AboutSection = (props) => {
           opacity: 1,
           y: 0,
         }}
-        whileTap={{
-          scale: 0.8,
-          rotate: -90,
-          borderRadius: "100%"
-        }}
-        whileHover={{ scale: 1.2, rotate: 90 }}
+        
         transition={{
           duration: 1,
           delay: 2,

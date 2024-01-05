@@ -11,24 +11,35 @@ body {
   margin: 0;
 }
 .button-contact{
-  transform: skewY(35deg);
+
   padding: .8rem 2rem;
   border-radius: 30px;
-  box-shadow: 6px -6px rgba(0, 0, 0, .5);
-  background: #C4302B;
-  color: #FFF;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.12);
+
+
   font-size: 1.25rem;
   letter-spacing: 1px;
-  animation: bounce .8s linear infinite;
+
 }
-@keyframes bounce {
-  0% {
-    transform: translateY(0px) var(--transform);
+.button-contact:hover{
+  box-shadow: 0 0 0 rgba(0,0,0,0.12);
+  transition: all .1s ease-out;
+}
+
+.anim {
+  animation: jiggle 2.0s ease-out infinite;
+}
+@keyframes jiggle {
+  48%, 62% {
+    transform: scale(1.0, 1.0)
   }
   50% {
-    transform: translateY(20px) var(--transform);
+    transform: scale(1.1, 0.9)
   }
-  100% {
-    transform: translateY(0px) var(--transform);
+  56% {
+    transform: scale(0.9, 1.1) translate(0, -5px)
+  }
+  59% {
+    transform: scale(1.0, 1.0) translate(0, -3px)
   }
 }
