@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Projects";
-import { Text } from "@react-three/drei";
-import TextTresD from "./TextTresD";
-import { Ballon } from "./Ballon";
+
 
 const Section = (props) => {
   const { children } = props;
@@ -75,7 +73,7 @@ const AboutSection = (props) => {
       </motion.p>
       <motion.button
         onClick={() => setSection(3)}
-        className={`bg-white text-black py-4 px-8 
+        className={` bg-white text-black py-4 px-8 
       rounded-lg font-bold text-lg mt-16`}
         initial={{
           opacity: 0,
@@ -85,9 +83,16 @@ const AboutSection = (props) => {
           opacity: 1,
           y: 0,
         }}
+        whileTap={{
+          scale: 0.8,
+          rotate: -90,
+          borderRadius: "100%"
+        }}
+        whileHover={{ scale: 1.2, rotate: 90 }}
         transition={{
           duration: 1,
           delay: 2,
+          
         }}
       >
         Contact me
@@ -273,21 +278,43 @@ const ProjectsSection = () => {
 
   return (
     <Section>
-      <div className="flex w-full h-full gap-8 items-center justify-center">
-        <button
-          className="hover:text-indigo-600 transition-colors"
-          onClick={previousProject}
-        >
-          ← Previous
-        </button>
-        <h2 className="text-5xl font-bold">Projects</h2>
-        <button
-          className="hover:text-indigo-600 transition-colors"
-          onClick={nextProject}
-        >
-          Next →
-        </button>
-      </div>
+
+
+        <div className="flex w-full h-full gap-8  flex-1 items-center justify-between p-4">
+          <svg
+            onClick={previousProject}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-10 h-10 pointer-events-auto hover:opacity-60 transition-opacity cursor-pointer"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+            />
+          </svg>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-10 h-10 pointer-events-auto hover:opacity-60 transition-opacity cursor-pointer"
+            onClick={nextProject}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+            />
+          </svg>
+        </div>
+
+
     </Section>
   );
 };

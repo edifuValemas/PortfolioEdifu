@@ -3,12 +3,8 @@ import {
   Environment,
   useScroll,
   Float,
-  Text,
   MeshDistortMaterial,
   MeshWobbleMaterial,
-  RenderTexture,
-  useMatcapTexture,
-  ContactShadows
 } from "@react-three/drei";
 import { useControls } from "leva";
 import { Avatar } from "./Avatar";
@@ -17,7 +13,6 @@ import { motion } from "framer-motion-3d";
 import { useMotionValue,animate } from "framer-motion";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
-import { degToRad } from "three/src/math/MathUtils";
 import * as THREE from "three";
 import { Projects } from "./Projects";
 import { Ballon } from "./Ballon";
@@ -81,8 +76,8 @@ export const Experience = (props) => {
       <Background />
       <TextTresD/>
       <motion.group 
-        position={[2.1,.7, 5.7]}
-        rotation={[0, -0.39439816339744843, 0]}
+        position={[1.2,.6, 4.8]}
+        rotation={[0, -0.20, 0]}
         scale={[.5, .5, .5]}
         animate= {""+ section}
         variants={{
@@ -110,16 +105,19 @@ export const Experience = (props) => {
             rotateZ: 0,
           },
           3: {
-            y: -viewport.height * 3 + 1,
+            y: -viewport.height * 3.2 + 1,
             x: 1,
             z: 1,
             rotateX: 0,
             rotateY: -Math.PI / 4,
             rotateZ: 0,
+            scaleX: 1.3,
+            scaleY: 1.3,
+            scaleZ: 1.3,
           },
         }}
         >
-          
+           <directionalLight castShadow={true} color={"#FBC138"} position={[-4, 10, -4.7]} intensity={1} />
         <Avatar  animation={characterAnimation}/>
 
       </motion.group>     
@@ -135,7 +133,7 @@ export const Experience = (props) => {
       </motion.group>
       <ambientLight intensity={.1}/>
       <Environment preset="sunset" />
-      <directionalLight castShadow={true} color={"#FBC138"} position={[-4, 10, -4.7]} intensity={1} />
+   
       <hemisphereLight groundColor={"#000000"} intensity={.2}/>
       <motion.group
         position={[1.2, 2, 3.3]}
@@ -220,7 +218,34 @@ export const Experience = (props) => {
         </Float>
       </motion.group>
       <Projects/>
-      <motion.group>      
+      <motion.group
+      animate= {""+ section}
+        variants={{
+        0: {
+          scaleX: 0,
+          scaleY: 0,
+          scaleZ: 0,
+          opacity:0
+        },
+        1: {
+          scaleX: 1,
+          scaleY: 1,
+          scaleZ: 1,
+          opacity:1
+        },
+        2: {
+          scaleX: 0,
+          scaleY: 0,
+          scaleZ: 0,
+          opacity:0
+        },
+        3: {
+          scaleX: 0,
+          scaleY: 0,
+          scaleZ: 0,
+          opacity:0
+        },
+      }}>      
         <Text3D
             position={[1.2, 0, 1.1]}
             position-y={-viewport.height * 1.0 + 1}
@@ -243,10 +268,119 @@ export const Experience = (props) => {
             >
             {`SKILLS`}
             <meshStandardMaterial shadowSide={THREE.BackSide} color="#B667E5"/>
-            
-
         </Text3D>
-    </motion.group>
+      </motion.group>
+
+
+      <motion.group
+          animate= {""+ section}
+          variants={{
+          0: {
+            scaleX: 0,
+            scaleY: 0,
+            scaleZ: 0,
+            opacity:0
+          },
+          1: {
+            scaleX: 0,
+            scaleY: 0,
+            scaleZ: 0,
+            opacity:0
+          },
+          2: {
+            scaleX: 1,
+            scaleY: 1,
+            scaleZ: 1,
+            opacity:1
+          },
+          3: {
+            scaleX: 0,
+            scaleY: 0,
+            scaleZ: 0,
+            opacity:0
+          },
+        }}
+      >   
+           
+        <Text3D
+            position={[1, 0, 1.1]}
+            position-y={-viewport.height * 1.9 + 1}
+            scale={[.5, .5, .5]}
+            ref={ref}
+            size={w / 13}
+            maxWidth={[-w / 5, -h * 3, 3]}
+            font={"fonts/gt.json"}
+            curveSegments={10}
+            brevelSegments={5}
+            castShadow={true} 
+            bevelEnabled
+            receiveShadow={true}
+            bevelSize={0.04}
+            height={.2}
+            rotation={[0, .3, 0]} 
+            lineHeight={0.5}
+            letterSpacing={0.2}
+            
+            >
+            {`PROJECTS`}
+            <meshStandardMaterial shadowSide={THREE.BackSide} color="#FFD60D"/>
+        </Text3D>
+        
+      </motion.group>
+      <motion.group
+       animate= {""+ section}
+          variants={{
+          0: {
+            scaleX: 0,
+            scaleY: 0,
+            scaleZ: 0,
+            opacity:0
+          },
+          1: {
+            scaleX: 0,
+            scaleY: 0,
+            scaleZ: 0,
+            opacity:0
+          },
+          2: {
+            scaleX: 0,
+            scaleY: 0,
+            scaleZ: 0,
+            opacity:0
+          },
+          3: {
+            scaleX: 1,
+            scaleY: 1,
+            scaleZ: 1,
+            opacity:1
+          },
+        }}
+      >      
+        <Text3D
+            position={[-4, 0, 1.1]}
+            position-y={-viewport.height * 3 + 1}
+            scale={[.5, .5, .5]}
+            ref={ref}
+            size={w / 13}
+            maxWidth={[-w / 5, -h * 3, 3]}
+            font={"fonts/gt.json"}
+            curveSegments={10}
+            brevelSegments={5}
+            castShadow={true} 
+            bevelEnabled
+            receiveShadow={true}
+            bevelSize={0.04}
+            height={.2}
+            rotation={[0, 1, -.02]} 
+            lineHeight={0.5}
+            letterSpacing={0.2}
+            
+            >
+            {`CONTACT`}
+            <meshStandardMaterial shadowSide={THREE.BackSide} color="#B667E5"/>
+        </Text3D>
+        
+      </motion.group>
    
     </>
   );

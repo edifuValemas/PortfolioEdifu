@@ -61,6 +61,7 @@ export function Avatar(props) {
       <group>
         <primitive object={nodes.Hips} />
         <skinnedMesh
+            castShadow receiveShadow
             frustumCulled={false}
             name="EyeLeft"
             geometry={nodes.EyeLeft.geometry}
@@ -70,6 +71,7 @@ export function Avatar(props) {
             morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
         />
         <skinnedMesh
+            castShadow receiveShadow
             frustumCulled={false}
             name="EyeRight"
             geometry={nodes.EyeRight.geometry}
@@ -79,6 +81,7 @@ export function Avatar(props) {
             morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
         />
         <skinnedMesh
+            castShadow receiveShadow
             frustumCulled={false}
             name="Wolf3D_Head"
             geometry={nodes.Wolf3D_Head.geometry}
@@ -88,6 +91,8 @@ export function Avatar(props) {
             morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
         />
         <skinnedMesh
+          
+            castShadow receiveShadow
             frustumCulled={false}
             name="Wolf3D_Teeth"
             geometry={nodes.Wolf3D_Teeth.geometry}
@@ -97,30 +102,35 @@ export function Avatar(props) {
             morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
         />
         <skinnedMesh
+          castShadow receiveShadow
             frustumCulled={false}
             geometry={nodes.Wolf3D_Hair.geometry}
             material={materials.Wolf3D_Hair}
             skeleton={nodes.Wolf3D_Hair.skeleton}
         />
         <skinnedMesh
+            castShadow receiveShadow
             frustumCulled={false}
             geometry={nodes.Wolf3D_Body.geometry}
             material={materials.Wolf3D_Body}
             skeleton={nodes.Wolf3D_Body.skeleton}
         />
         <skinnedMesh
+            castShadow receiveShadow
             frustumCulled={false}
             geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
             material={materials.Wolf3D_Outfit_Bottom}
             skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
         />
         <skinnedMesh
+            castShadow receiveShadow
             frustumCulled={false}
             geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
             material={materials.Wolf3D_Outfit_Footwear}
             skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
         />
         <skinnedMesh
+            castShadow receiveShadow
             frustumCulled={false}
             geometry={nodes.Wolf3D_Outfit_Top.geometry}
             material={materials.Wolf3D_Outfit_Top}

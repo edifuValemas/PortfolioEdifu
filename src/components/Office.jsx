@@ -200,10 +200,7 @@ export function Office(props) {
             <mesh  castShadow receiveShadow name="mesh1536715921_1" geometry={nodes.mesh1536715921_1.geometry} material={materials.mat20} />
             <mesh  castShadow receiveShadow name="mesh1536715921_2" geometry={nodes.mesh1536715921_2.geometry} material={materials.mat19} />
           </group>
-          <group name="group1555311382" scale={1.57}>
-            <mesh  castShadow receiveShadow name="mesh1555311382" geometry={nodes.mesh1555311382.geometry} material={materials.mat20} />
-            <mesh  castShadow receiveShadow name="mesh1555311382_1" geometry={nodes.mesh1555311382_1.geometry} material={materials.mat9} />
-          </group>
+        
           <group name="group1617223438">
             <mesh  castShadow receiveShadow name="mesh1617223438" geometry={nodes.mesh1617223438.geometry} material={materials.mat20} />
             <mesh  castShadow receiveShadow name="mesh1617223438_1" geometry={nodes.mesh1617223438_1.geometry} material={materials.mat9} />

@@ -37,7 +37,7 @@ function App() {
           </Scroll>
           
           <Scroll html>
-            <Interface/>
+            <Interface  setSection={setSection}/>
           </Scroll>
         </ScrollControls>
       
