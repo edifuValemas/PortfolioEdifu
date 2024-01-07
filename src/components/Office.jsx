@@ -151,7 +151,7 @@ export function Office(props) {
           name="screen" 
           geometry={nodes.screen.geometry} 
           
-          position={[0.205, 0.281, -0.222]} rotation={[-0.037, 0.544, -3.117]} scale={[0.661, 0.679, 0.892]} >
+          position={[0.205, 0.281, -0.222]} rotation={[-0.037, 0.544, -3.130]} scale={[0.661, 0.679, 0.892]} >
             <meshBasicMaterial map={textureVSCode} toneMapped={true} forceSinglePass={true}/>
         </mesh>
         <motion.group  
