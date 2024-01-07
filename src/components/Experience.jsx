@@ -12,7 +12,7 @@ import { Office } from "./Office";
 import { motion } from "framer-motion-3d";
 import { useMotionValue,animate } from "framer-motion";
 import { useFrame, useThree } from "@react-three/fiber";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Projects } from "./Projects";
 import { Ballon } from "./Ballon";
@@ -20,7 +20,7 @@ import { Background } from "./Background";
 import {Flag} from "./Flag";
 import React from "react";
 import TextTresD from "./TextTresD";
-import CanvasLoader from "./Loader";
+
 
 
 export const Experience = (props) => {
@@ -98,33 +98,27 @@ export const Experience = (props) => {
           2: {
           
             x: -2,
-            y: -viewport.height * 2.1 + 0.5,
+            y: -viewport.height * 2 + 0.5,
             z: 0,
             rotateX: 0,
             rotateY: Math.PI / 2,
             rotateZ: 0,
-            scaleX: 1,
-            scaleY: 1,
-            scaleZ: 1,
           },
           3: {
-            y: -viewport.height * 3.4 + 1,
+            y: -viewport.height * 3.2 + 1,
             x: 1,
             z: 1,
             rotateX: 0,
-            rotateY: -Math.PI / 7,
+            rotateY: -Math.PI / 4,
             rotateZ: 0,
-            scaleX: 2.6,
-            scaleY: 2.6,
-            scaleZ: 2.6,
+            scaleX: 1.3,
+            scaleY: 1.3,
+            scaleZ: 1.3,
           },
         }}
         >
-
-          <directionalLight castShadow={true} color={"#FBC138"} position={[-4, 10, -4.7]} intensity={1} />
-          <Avatar  animation={characterAnimation}/>
- 
-     
+           <directionalLight castShadow={true} color={"#FBC138"} position={[-4, 10, -4.7]} intensity={1} />
+        <Avatar  animation={characterAnimation}/>
 
       </motion.group>     
       <motion.group  
@@ -133,12 +127,9 @@ export const Experience = (props) => {
           y: section === -1 ? -viewport.height : 1.5,
         
         }}>
-        <Suspense fallback={<CanvasLoader />}>
-          <Float speed={2} floatIntensity={2} scale={.5}>
-            <Ballon/>                
-          </Float>  
-        </Suspense>
-            
+        <Float speed={2} floatIntensity={2} scale={.5}>
+          <Ballon/>                
+        </Float>       
       </motion.group>
       <ambientLight intensity={.1}/>
       <Environment preset="sunset" />
@@ -152,13 +143,10 @@ export const Experience = (props) => {
           y: section === 0 ? 1 : 0,
         }}
       >
-        <Suspense fallback={<CanvasLoader />}>
-          <Flag/>
-          <Office section = {section}/>
-          <group ref={characterContainerAboutRef}  position={[2.284, -0.429, 1.834]} rotation={[0, 0.391, 0]} scale={0.393}>
-          </group>
-        </Suspense>
-       
+        <Flag/>
+        <Office section = {section}/>
+        <group ref={characterContainerAboutRef}  position={[2.284, -0.429, 1.834]} rotation={[0, 0.391, 0]} scale={0.393}>
+        </group>
        
       </motion.group>
         

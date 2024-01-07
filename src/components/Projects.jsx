@@ -1,4 +1,4 @@
-import { Image, Text,useVideoTexture } from "@react-three/drei";
+import { Image, Text } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 
@@ -16,11 +16,28 @@ export const projects = [
   },
   {
     title: "Portfolio Baking",
-    url: "./",
+    url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
     image: "projects/baking.jpg",
     description: "Learn how to bake a 3D model with Blender and use it in r3f",
   },
-  
+  {
+    title: "3D Avatar",
+    url: "https://www.youtube.com/watch?v=pGMKIyALcK0",
+    image: "projects/avatar.jpg",
+    description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
+  },
+  {
+    title: "Kanagame",
+    url: "https://www.youtube.com/watch?v=zwNF1-lsia8",
+    image: "projects/kanagame.jpg",
+    description: "Use React Three Fiber to create a 3D game",
+  },
+  {
+    title: "Loader",
+    url: "https://www.youtube.com/watch?v=L12wIvuZTOY",
+    image: "projects/loader.jpg",
+    description: "Create a loading screen for your r3f projects",
+  },
 ];
 
 const Project = (props) => {
@@ -36,25 +53,22 @@ const Project = (props) => {
   useFrame(() => {
     background.current.material.opacity = bgOpacity.get();
   });
-  const textureVSCode = useVideoTexture(project.image)
+
   return (
     <group {...props}>
-      
       <mesh
         position-z={-0.001}
         onClick={() => window.open(project.url, "_blank")}
         ref={background}
       >
         <planeGeometry args={[2.2, 2]} />
-        <meshBasicMaterial map={textureVSCode} toneMapped={true} forceSinglePass={true}/>
+        <meshBasicMaterial color="black" transparent opacity={0.4} />
       </mesh>
-      
       <Image
         scale={[2, 1.2, 1]}
-        url={project.project}
+        url={project.image}
         toneMapped={false}
         position-y={0.3}
-        
       />
       <Text
         maxWidth={2}
