@@ -9,10 +9,10 @@ import { useEffect, useRef } from "react";
 
 export const projects = [
   {
-    title: "Wawatmos",
-    url: "https://r3f-wawatmos-final.vercel.app/",
-    image: "projects/wawatmos.jpg",
-    description: "Recreating the Atmos Awwwards website with React Three Fiber",
+    title: "Novae Web",
+    url: "https://novae.io/#/home",
+    image: "projects/novae.png",
+    description: "Design & Programing Web & Application colled Myrewards made with Ionic",
   },
   {
     title: "Portfolio Baking",
@@ -61,21 +61,21 @@ const Project = (props) => {
         onClick={() => window.open(project.url, "_blank")}
         ref={background}
       >
-        <planeGeometry args={[2.2, 2]} />
-        <meshBasicMaterial color="black" transparent opacity={0.4} />
+        <planeGeometry args={[2.5, 2.3]} />
+        <meshBasicMaterial color="red" transparent opacity={0.4} />
       </mesh>
       <Image
         scale={[2, 1.2, 1]}
         url={project.image}
         toneMapped={false}
-        position-y={0.3}
+        position-y={0.4}
       />
       <Text
-        maxWidth={2}
+        maxWidth={4}
         anchorX={"left"}
         anchorY={"top"}
         fontSize={0.2}
-        position={[-1, -0.4, 0]}
+        position={[-1, -0.3, 0]}
       >
         {project.title.toUpperCase()}
       </Text>
@@ -83,8 +83,8 @@ const Project = (props) => {
         maxWidth={2}
         anchorX="left"
         anchorY="top"
-        fontSize={0.1}
-        position={[-1, -0.6, 0]}
+        fontSize={0.16}
+        position={[-1, -0.5, 0]}
       >
         {project.description}
       </Text>
@@ -106,7 +106,7 @@ export const Projects = () => {
           key={"project_" + index}
           position={[index * 2.5, 0, -3]}
           animate={{
-            x: 0 + (index - currentProject) * 2.5,
+            x: 0 + (index - currentProject) * 4,
             y: currentProject === index ? 0 : -.7,
             z: currentProject === index ? -2 : -3,
             rotateX: currentProject === index ? 0 : -Math.PI / 3,

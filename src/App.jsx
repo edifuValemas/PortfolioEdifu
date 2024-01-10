@@ -8,6 +8,7 @@ import { Menu } from "./components/Menu";
 import { MotionConfig } from "framer-motion";
 import { Cursor } from "./components/Cursor";
 import { Leva } from "leva";
+import {ContactHtml} from "./components/ContactHtml";
 
 function App() {
   const [section, setSection] = useState(0);
@@ -30,7 +31,7 @@ function App() {
       >
         <Canvas shadows camera={{ position: [0, 3, 10], fov: 45 }}>
           <color attach="background" args={["#ececec"]} />
-        <ScrollControls pages={4} damping={0.2}>
+        <ScrollControls pages={6} damping={0.2}>
           <ScrollManager section={section} onSectionChange={setSection}/>
           <Scroll>
             <Experience section = {section} menuOpened={menuOpened}/>
@@ -47,6 +48,7 @@ function App() {
           menuOpened={menuOpened}
           setMenuOpened={setMenuOpened}
         />
+        <ContactHtml/>
         <Cursor/>
       </MotionConfig>
       <Leva hidden/>

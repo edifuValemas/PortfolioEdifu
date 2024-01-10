@@ -10,7 +10,7 @@ const Section = (props) => {
     
     <motion.section
       className={
-        "h-screen w-screen p-8 max-w-screen-2xl mx-auto flex flex-col items-start justify-center"}
+        "h-screen w-screen p-12 max-w-screen-2xl mx-auto flex flex-col items-start justify-center"}
       initial={{
         opacity: 0,
         y: 50,
@@ -36,6 +36,8 @@ export const Interface = (props) => {
       <AboutSection setSection={setSection} />
       <SkillsSection />
       <ProjectsSection />
+      <ProjectsSectionOne />
+      <ProjectsSectionTwo />
       <ContactSection />
     </div>
   );
@@ -69,29 +71,9 @@ const AboutSection = (props) => {
         <br />
         Programming, UX - UI,
         <br />
-        Branding and drawing lover.
+        Branding and a lover of sports and drawing.
       </motion.p>
-      <motion.button
-        onClick={() => setSection(3)}
-        className={`anim button-contact skew-y-6 bg-white text-teal-400 py-4 px-8 
-      rounded-lg font-bold mt-16`}
-        initial={{
-          opacity: 0,
-          y: 25,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        
-        transition={{
-          duration: 1,
-          delay: 2,
-          
-        }}
-      >
-        Contact me
-      </motion.button>
+      
       <div onClick={() => setSection(1)} className='relative  -bottom-36 cursor-pointer xs:bottom-10  w-full flex justify-center items-center'>
        
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
@@ -165,7 +147,7 @@ const SkillsSection = () => {
         <div className="flex flex-nowrap">
           
           <div className=" space-y-4">
-            <h2 className="text-5xl font-bold text-white">Skills</h2>
+            
             {skills.map((skill, index) => (
               <div className="w-64" key={index}>
                 <motion.h3
@@ -208,8 +190,8 @@ const SkillsSection = () => {
             ))}
           </div>
           <div className="ml-5">
-            <h2 className="text-5xl font-bold text-white">Languages</h2>
-            <div className="mt-4 space-y-4">
+            
+            <div className="space-y-4">
               {languages.map((lng, index) => (
                 <div className="w-64" key={index}>
                   <motion.h3
@@ -261,65 +243,152 @@ const SkillsSection = () => {
 };
 
 const ProjectsSection = () => {
-  const [currentProject, setCurrentProject] = useAtom(currentProjectAtom);
-
-  const nextProject = () => {
-    setCurrentProject((currentProject + 1) % projects.length);
-  };
-
-  const previousProject = () => {
-    setCurrentProject((currentProject - 1 + projects.length) % projects.length);
-  };
-
+ 
   return (
     <Section>
 
 
-        <div className="flex w-full h-full gap-8  flex-1 items-center justify-between p-4">
-          <svg
-            onClick={previousProject}
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-10 h-10 pointer-events-auto hover:opacity-60 transition-opacity cursor-pointer"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-            />
-          </svg>
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-10 h-10 pointer-events-auto hover:opacity-60 transition-opacity cursor-pointer"
-            onClick={nextProject}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-            />
-          </svg>
-        </div>
+      <div className="flex flex-col gap-4  flex-1  justify-center p-4">
+        <h1 className="text-white text-5xl font-extrabold ">
+          Novae
+        </h1>
+        
+        <motion.p
+          className="text-lg text-gray-600 mt-4 font-thin text-white"
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+            delay: 1,
+          }}
+        >
+          mobile design and landing page for 
+          <br />
+          white label redemption and rewards
+          <br />
+          application for traveling customers
+        </motion.p>
+        <a href="https://novae.io/#/home" className="button-links font-thin">Live 👉</a>
+     
+      </div>
 
 
     </Section>
   );
 };
-
-
+const ProjectsSectionOne = () => {
+ 
+  return (
+    <Section>
+      <div className="flex flex-col gap-4  flex-1  justify-center p-4">
+        <h1 className="text-white text-5xl font-extrabold ">
+          EL TIEMPO
+        </h1>
+        
+        <motion.p
+          className="text-lg text-gray-600 mt-4 font-thin text-white"
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+            delay: 1,
+          }}
+        >
+          UX design, programming and support of 
+          <br />
+          the multiplatform web for the largest 
+          <br />
+          newspaper in Colombia called EL TIEMPO.
+        </motion.p>
+        <a href="https://www.eltiempo.com/" className="button-links font-thin">Live 👉</a>
+     
+      </div>
+    </Section>
+  );
+};
+const ProjectsSectionTwo = () => {
+ 
+  return (
+    <Section>
+      <div className="flex flex-col gap-4  flex-1  justify-center p-4">
+        <h1 className="text-white text-5xl font-extrabold ">
+          Valemas
+        </h1>
+        
+        <motion.p
+          className="text-lg text-gray-600 mt-4 font-thin text-white"
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+            delay: 1,
+          }}
+        >
+          Multi-platform B2B white label model for 
+          <br />
+          building customer loyalty by earning points
+          <br />
+          and redeeming them for rewards.
+        </motion.p>
+        <a href="https://www.eltiempo.com/" className="button-links font-thin">Live 👉</a>
+     
+      </div>
+    </Section>
+  );
+};
 const ContactSection = () => {
   return (
     <Section>
-      <h2 className="text-5xl font-bold">Contact me</h2>
       
+      <div className="flex flex-col gap-4  flex-1  justify-center p-4">
+        <h1 className="text-white text-5xl font-extrabold ">
+          UX - UI Design
+        </h1>
+        
+        <motion.p
+          className="text-lg  text-gray-600 mt-4 font-thin text-white"
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+            delay: 1,
+          }}
+        >
+          As a designer I have also worked on 
+          <br />
+          multiple projects from the conception
+          <br />
+          of the idea to the execution of the project.
+          <br />
+          I'll wait while you take a look at my behance
+        </motion.p>
+        <a href="https://www.behance.net/edissonjavier" className="button-links font-thin">Live 👉</a>
+     
+      </div>
     </Section>
   );
 };

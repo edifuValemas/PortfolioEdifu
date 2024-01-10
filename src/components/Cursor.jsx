@@ -46,6 +46,7 @@ export const Cursor = () => {
           e.target.tagName.toLowerCase() === "button" ||
           // check parent is button
           e.target.parentElement.tagName.toLowerCase() === "button" ||
+          e.target.tagName.toLowerCase() === "a" ||
           // check is input or textarea
           e.target.tagName.toLowerCase() === "input" ||
           e.target.tagName.toLowerCase() === "textarea"

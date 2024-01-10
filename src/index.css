@@ -10,36 +10,183 @@
 body {
   margin: 0;
 }
-.button-contact{
-
-  padding: .8rem 2rem;
-  border-radius: 30px;
-  box-shadow: 0 10px 10px rgba(0,0,0,0.12);
-
-
-  font-size: 1.25rem;
-  letter-spacing: 1px;
-
-}
-.button-contact:hover{
-  box-shadow: 0 0 0 rgba(0,0,0,0.12);
-  transition: all .1s ease-out;
+.pointer-events-auto{
+  background-color: aqua;
+  z-index: 99999999;
+  width: 10em;
+  height: 10em;
 }
 
-.anim {
-  animation: jiggle 2.0s ease-out infinite;
+
+
+.button-links {
+  max-width: 140px;
+  width: 100%;
+  padding: 1em 0.2em 0em 1em;
+  border: 0;
+  background: white;
+  font-size: 1.2em;
+  border-radius: 10px;
+  box-shadow: 10px 10px rgba(255, 0, 144, 1);
+  transition: all .1s linear;
+  color: rgba(255, 0, 144, 1);
+  cursor: pointer;
 }
+
+.button-links:hover {
+  box-shadow: 5px 5px rgb(0, 255, 255);
+}
+
+
+
 @keyframes jiggle {
   48%, 62% {
-    transform: scale(1.0, 1.0)
+    transform:   translate(0, -1px) scale(1.04)
   }
   50% {
-    transform: scale(1.1, 0.9)
+    transform:   translate(0, -1px) scale(1.04)
   }
   56% {
-    transform: scale(0.9, 1.1) translate(0, -5px)
+    transform:   translate(0, -1px) scale(1.04)
   }
   59% {
-    transform: scale(1.0, 1.0) translate(0, -3px)
+    transform: translate(0, -1px) scale(1.04)
   }
+}
+
+
+
+.menu-item, .menu-open-button {
+
+  border-radius: 30%;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.04);
+  width: 50px;
+  height: 50px;
+  margin-left: -40px;
+  position: absolute;
+  top: 20px;
+  background: white;
+  text-align: center;
+  
+  transform: translate3d(0, 0, 0);
+  transition: transform ease-out 200ms;
+  font-size: 2.3em;
+}
+
+.menu-open {
+  display: none;
+}
+.menu-open:checked + .menu-open-button .hamburger-1 {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(45deg);
+}
+.menu-open:checked + .menu-open-button .hamburger-2 {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(0.1, 1);
+}
+.menu-open:checked + .menu-open-button .hamburger-3 {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(-45deg);
+}
+.menu-open:checked + .menu-open-button .mail{
+  font-size: 0;
+  opacity: 0;
+}
+.hamburger {
+  width: 25px;
+  height: 3px;
+  opacity: 0;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: rgb(188, 90, 188);
+  margin-left: -12.5px;
+  margin-top: -1.5px;
+  transition: transform 200ms;
+}
+
+
+
+.menu {
+  position: fixed;
+  left:5em;
+  bottom: 7em;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+
+}
+
+.menu-item:hover {
+  background: white;
+  color: #00bcd4;
+}
+.menu-item:nth-child(3) {
+  transition-duration: 180ms;
+}
+.menu-item:nth-child(4) {
+  transition-duration: 180ms;
+}
+.menu-item:nth-child(5) {
+  transition-duration: 180ms;
+}
+.menu-item:nth-child(6) {
+  transition-duration: 180ms;
+}
+
+.menu-open-button {
+  z-index: 2;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 400ms;
+  transform: scale(1, 1) translate3d(0, 0, 0);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.04);
+
+}
+.menu-open-button img{
+  max-width: 30px;
+  max-height: 30px;
+}
+.menu-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+}
+.menu-item.resume{
+  font-size: 1.8em;
+}
+.menu-open-button:hover {
+  box-shadow: 0 10px 10px rgba(0,0,0,0.04);
+  animation: jiggle 1s ease-out infinite;
+}
+
+.menu-open:checked + .menu-open-button {
+  transition-timing-function: linear;
+  transition-duration: 200ms;
+  
+}
+
+.menu-open:checked ~ .menu-item {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.menu-open:checked ~ .menu-item:nth-child(3) {
+  transition-duration: 190ms;
+  transform: translate3d(80px, 0, 0);
+}
+.menu-open:checked ~ .menu-item:nth-child(4) {
+  transition-duration: 290ms;
+  transform: translate3d(170px, 0, 0);
+}
+.menu-open:checked ~ .menu-item:nth-child(5) {
+  transition-duration: 390ms;
+  transform: translate3d(260px, 0, 0);
+}
+.menu-open:checked ~ .menu-item:nth-child(6) {
+  transition-duration: 490ms;
+  transform: translate3d(350px, 0, 0);
 }
