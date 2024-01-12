@@ -164,7 +164,11 @@ body {
   box-shadow: 0 10px 10px rgba(0,0,0,0.04);
   animation: jiggle 1s ease-out infinite;
 }
-
+.button-scroll{
+  bottom: 1em;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .menu-open:checked + .menu-open-button {
   transition-timing-function: linear;
   transition-duration: 200ms;
@@ -189,4 +193,22 @@ body {
 .menu-open:checked ~ .menu-item:nth-child(6) {
   transition-duration: 490ms;
   transform: translate3d(350px, 0, 0);
+}
+
+@media only screen and (max-width: 768px) {
+  .skill-section {
+    margin-top: 19vh;
+    transform: scale(.8);
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .skill-section {
+    margin-top: 19vh;
+    transform: scale(1);
+  }
+}
+@media only screen and (max-width: 400px) {
+  .skill-section {
+    transform: scale(.8);
+  }
 }

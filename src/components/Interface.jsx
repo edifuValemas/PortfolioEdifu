@@ -4,13 +4,17 @@ import { currentProjectAtom, projects } from "./Projects";
 
 
 const Section = (props) => {
-  const { children } = props;
+  const { children,mobileTop } = props;
 
   return (
     
     <motion.section
-      className={
-        "h-screen w-screen p-12 max-w-screen-2xl mx-auto flex flex-col items-start justify-center"}
+    className={`
+    relative
+    h-screen w-screen p-8 max-w-screen-2xl mx-auto
+    flex flex-col items-start
+    ${mobileTop ? "justify-start lg:justify-center" : "justify-center"}
+    `}
       initial={{
         opacity: 0,
         y: 50,
@@ -46,14 +50,14 @@ export const Interface = (props) => {
 const AboutSection = (props) => {
   const { setSection } = props;
   return (
-    <Section>
+    <Section mobileTop>
       
-      <h1 className="text-white text-5xl font-extrabold ">
+      <h1 className="text-white mt-12 font-extrabold text-2xl sm:text-2xl  md:text-4xl md:mt-0">
         Graphic<br /> Designer
       </h1>
       
       <motion.p
-        className="text-lg text-gray-600 mt-4 font-thin text-white"
+        className=" text-gray-600 mt-4 font-thin text-sm sm:text-1xl md:text-2xl text-white"
         initial={{
           opacity: 0,
           y: 25,
@@ -71,10 +75,12 @@ const AboutSection = (props) => {
         <br />
         Programming, UX - UI,
         <br />
-        Branding and a lover of sports and drawing.
+        Branding and a lover of 
+        <br />
+        sports and drawing.
       </motion.p>
       
-      <div onClick={() => setSection(1)} className='relative  -bottom-36 cursor-pointer xs:bottom-10  w-full flex justify-center items-center'>
+      <div onClick={() => setSection(1)} className='absolute button-scroll cursor-pointer xs:bottom-10  w-full flex justify-center items-center'>
        
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
             <motion.div
@@ -140,11 +146,11 @@ const languages = [
 const SkillsSection = () => {
   return (
 
-    <Section>
+    <Section mobileTop>
      
       <motion.div  whileInView={"visible"}>
         
-        <div className="flex flex-nowrap">
+        <div className="flex skill-section items-baseline lg:pt-0  flex-col md:flex-row md:flex-nowrap">
           
           <div className=" space-y-4">
             
@@ -245,10 +251,10 @@ const SkillsSection = () => {
 const ProjectsSection = () => {
  
   return (
-    <Section>
+    <Section mobileTop>
 
 
-      <div className="flex flex-col gap-4  flex-1  justify-center p-4">
+      <div className="flex flex-col gap-4  flex-1  xl:justify-center  p-4">
         <h1 className="text-white text-5xl font-extrabold ">
           Novae
         </h1>
@@ -285,8 +291,8 @@ const ProjectsSection = () => {
 const ProjectsSectionOne = () => {
  
   return (
-    <Section>
-      <div className="flex flex-col gap-4  flex-1  justify-center p-4">
+    <Section mobileTop>
+      <div className="flex flex-col gap-4  flex-1   p-4">
         <h1 className="text-white text-5xl font-extrabold ">
           EL TIEMPO
         </h1>
@@ -321,8 +327,8 @@ const ProjectsSectionOne = () => {
 const ProjectsSectionTwo = () => {
  
   return (
-    <Section>
-      <div className="flex flex-col gap-4  flex-1  justify-center p-4">
+    <Section mobileTop>
+      <div className="flex flex-col gap-4  flex-1   p-4">
         <h1 className="text-white text-5xl font-extrabold ">
           Valemas
         </h1>
@@ -356,9 +362,9 @@ const ProjectsSectionTwo = () => {
 };
 const ContactSection = () => {
   return (
-    <Section>
+    <Section mobileTop>
       
-      <div className="flex flex-col gap-4  flex-1  justify-center p-4">
+      <div className="flex flex-col gap-4  flex-1   p-4">
         <h1 className="text-white text-5xl font-extrabold ">
           UX - UI Design
         </h1>

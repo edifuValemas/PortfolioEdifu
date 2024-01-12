@@ -11,11 +11,11 @@ export function Avatar(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF("models/6586351fd3ccf6fa24835c0f.glb");
 
-  const { animations: dancingAnimation } = useFBX("animations/Typing.fbx");
+  
   const { animations: standingAnimation } = useFBX(
     "animations/Standing Idle.fbx"
   );
-  const { animations: runAnimation } = useFBX(
+  const { animations: greetingsAnimation } = useFBX(
     "animations/Standing W_Briefcase Idle.fbx"
   );
   const { animations: jumpAnimation } = useFBX(
@@ -25,13 +25,13 @@ export function Avatar(props) {
     "animations/Sitting Idle.fbx"
   );
 
-  dancingAnimation[0].name = "Dancing";
+  
   standingAnimation[0].name = "Standing";
-  runAnimation[0].name = "Run";
+  greetingsAnimation[0].name = "Greetings";
   jumpAnimation[0].name = "Jump";
   sitAnimation[0].name = "Sitting";
   const { actions } = useAnimations(
-    [dancingAnimation[0], standingAnimation[0], runAnimation[0], jumpAnimation[0],sitAnimation[0]],
+    [ standingAnimation[0], greetingsAnimation[0], jumpAnimation[0],sitAnimation[0]],
     group
   );
 
